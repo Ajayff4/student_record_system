@@ -1,0 +1,97 @@
+.formDiv{
+    width: 20em;
+}
+
+hr{
+    border-color: cornflowerblue;
+}
+
+header{
+    color: #007BFF;
+    text-align: center;
+    border-bottom: 1px solid #007BFF;
+}
+
+footer{
+    position: fixed;
+    color: #007BFF;
+    text-align: center;
+    border-top: 1px solid #007BFF;
+    bottom: 0;
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+ul button{
+    left: 50%;
+}
+
+body{
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+legend{
+    color: cornflowerblue;
+}
+
+fieldset{
+    border-radius: 5px;
+    border-color: cornflowerblue;
+}
+
+::placeholder{
+    color: black;
+}
+
+input[type=text],
+input[type=password],
+input[type=email]
+{
+    height: 17px;
+    background-color: rgb(29, 101, 235);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    color: white;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=email]:hover
+{
+    transition: 0.75s;
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    color: white;
+    
+}
+
+button{
+    border-radius: 3px;
+    background-color: #007BFF;
+    border: none;
+    height: 30px;
+    width: 80px;
+    color: white;
+}
+
+button:hover{
+    transition: 0.75s;
+    border-radius: 3px;
+    background-color: blue;
+    border: none;
+    height: 30px;
+    width: 80px;
+    color: white;
+}
