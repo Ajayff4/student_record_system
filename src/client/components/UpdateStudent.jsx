@@ -9,6 +9,10 @@ const UpdateStudent = () => {
                 <form>
                     <p id="notice">* Select a field to update</p>
                     <hr />
+                    <input type="text" id="roll_no"
+                        placeholder="Enter roll number"
+                        name="roll_no" required
+                    /><br />
                     <select name="stdudentDetails" id="updateDetails" required>
                         <option value="">Select Field</option>
                         <option value="">Mobile</option>

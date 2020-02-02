@@ -32,6 +32,11 @@
     overflow: hidden;
   }
 /******SCROLL BAR CSS DO NOT MESS WITH IT*******/
+table#darkStriped {
+    width: 100%;
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
 
 .formDiv{
     width: 20em;
@@ -87,8 +92,9 @@
     color: black;
 }
 
-#searchFieldset{
+#searchFieldset fieldset{
     height: auto;
+    transform: translateY(20px);
 }
 
 #notice{
@@ -141,14 +147,14 @@ fieldset{
     border-color: cornflowerblue;
 }
 
-table{
+#infoTable{
     color: #007BFF;
     font-size: 25px;
     height: 7em;
     width: 20em;
 }
 
-table:hover{
+#infoTable:hover{
     background-color: #007BFF;
     transition: 1s;
     font-size: 25px;
@@ -182,10 +188,20 @@ input[type=date]:hover,
 select:hover
 {
     transition: 1s;
+    height: 17px;
     background-color: blue;
     border-radius: 10px;
-    height: 2em;
-    width: 15em;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    color: white;   
+}
+
+.updateInfo:hover{
+    transition: 1s;
+    height: 17px;
+    background-color: blue;
+    border-radius: 10px;
     padding: 5px;
     margin: 5px;
     border: none;
@@ -209,10 +225,11 @@ button:hover{
     height: 30px;
     width: 80px;
     color: white;
+    font-size: 0.6em;
 }
 
 ul button{
-    height: 55px;
+    height: 35px;
     width: 120px;
     border-radius: 0px;
     font-size: 0.9em;

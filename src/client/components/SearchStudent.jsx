@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/styles.css';
+import PrintTable from './PrintTable';
 
 const SearchStudent = () => {
     return (
-        <div>
-            <fieldset id="searchFieldset">
+        <div id="searchFieldset">
+            <fieldset>
                 <legend>Search Student Form</legend>
                 <form>
                     <select name="stdudentDetails" id="updateDetails" required>
@@ -12,26 +13,15 @@ const SearchStudent = () => {
                         <option value="">Mobile</option>
                         <option value="">Email</option>
                     </select>
-                    <input type="text" id="updateInfo"
+                    <input type="text" id="updateInfo" className="updateInfo"
                         placeholder="Enter detail to update"
                         name="updateInfo" required
                     />
                     <button type="submit">Submit</button>
                     <hr />
-                    <div class="outerBox">
-                        <div class="innerBox">
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
-                            <p>enwednwledijowe</p>
+                    <div className="outerBox">
+                        <div className="innerBox">
+                            <PrintTable />
                         </div>
                     </div>
                 </form>

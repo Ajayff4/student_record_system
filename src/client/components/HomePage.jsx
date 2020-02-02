@@ -27,6 +27,8 @@ const HomePage = () => {
         "Search": setSearchStudent
     };
 
+    //const state = [home, login, signup, addStudent, updateStudent, searchStudent];
+
     const updateAllState = (event) => {
         for (const state in stateDictionary) {
             stateDictionary[state](false);
@@ -51,9 +53,9 @@ const HomePage = () => {
                     <button onClick={updateAllState} id="Home">Home</button>
                     <button onClick={updateAllState} id="Login">Log In</button>
                     <button onClick={updateAllState} id="Signup">SignUp</button>
-                    <button onClick={updateAllState} id="Add">Add Student</button>
-                    <button onClick={updateAllState} id="Update">Update Student</button>
-                    <button onClick={updateAllState} id="Search">Search Student</button>
+                    <button onClick={updateAllState} id="Add">AddStudent</button>
+                    <button onClick={updateAllState} id="Update">UpdateStudent</button>
+                    <button onClick={updateAllState} id="Search">SearchStudent</button>
                 </ul>
             </center>
 
