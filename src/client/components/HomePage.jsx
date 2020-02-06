@@ -31,11 +31,11 @@ const HomePage = () => {
 
     const updateAllState = (event) => {
         for (const state in stateDictionary) {
-            stateDictionary[state](false);
+            stateDictionary[state](false); //equivalent to calling hook setState
         }
         for (const state in stateDictionary) {
             if (event.target.id === state) {
-                stateDictionary[state](true);
+                stateDictionary[state](true); //equivalent to calling hook setState
                 break;
             }
         }

@@ -14,7 +14,7 @@ class PrintTable extends React.Component {
                 <th>Course</th>
                 <th>DOB</th>
                 <th>Pincode</th>
-                <th>Status</th>
+                <th><center>Status</center></th>
             </tr>
         )
         students.forEach(function (student, i) {
@@ -22,7 +22,7 @@ class PrintTable extends React.Component {
             for (let props in student) {
                 row.push(<td key={i + props}>{student[props]}</td>);
             }
-            row.push(<td key={"status" + i}><center><button>Disable</button></center></td>)
+            row.push(<td key={"status" + i}><center><button id="editButton">Edit</button><button id="stateButton">Delete</button></center></td>)
             if (i % 2 === 0)
                 table.push(<tr style={{ height: "3em", backgroundColor: "#343A40" }} key={i}>{row}</tr>);
             else

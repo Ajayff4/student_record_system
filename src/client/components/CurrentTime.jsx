@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/styles.css';
 
-function currTime() {
+function timeFormatterAMPM() {
     let dateString = new Date().toTimeString();
     let newDateString = "";
     let hour = parseInt(dateString.substr(0, 2));
@@ -19,7 +19,7 @@ const CurrentTime = () => {
         <div id="currTimeDiv">
             <fieldset>
                 <legend>Time</legend>
-                <p id="currTime">{setInterval(currTime, 1000)}</p>
+                <p id="currTime">{setInterval(timeFormatterAMPM, 1000)}</p>
             </fieldset >
         </div >
     )

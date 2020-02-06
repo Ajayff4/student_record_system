@@ -122,6 +122,20 @@ hr{
     border-color: cornflowerblue;
 }
 
+#editButton{
+    background-color: #00D477;
+    font-weight: bold;
+    width: 60px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+#stateButton{
+    background-color: red;
+    font-weight: bold;
+    width: 60px;
+    border-radius: 0px 5px 5px 0px;
+}
+
 header{
     color: #007BFF;
     text-align: center;
