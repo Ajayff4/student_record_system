@@ -119,7 +119,7 @@ body{
 }
 
 hr{
-    border-color: cornflowerblue;
+    border-color: #007BFF;
 }
 
 #editButton{
@@ -153,12 +153,12 @@ footer{
 }
 
 legend{
-    color: cornflowerblue;
+    color: #007BFF;
 }
 
 fieldset{
     border-radius: 5px;
-    border-color: cornflowerblue;
+    border-color: #007BFF;
 }
 
 #infoTable{
@@ -166,16 +166,6 @@ fieldset{
     font-size: 25px;
     height: 7em;
     width: 20em;
-}
-
-#infoTable:hover{
-    background-color: #007BFF;
-    transition: 1s;
-    font-size: 25px;
-    height: 7em;
-    width: 20em;
-    color: black;
-    border-color: #007BFF;
 }
 
 input[type=text],
@@ -222,7 +212,7 @@ select:hover
     color: white;   
 }
 
-button{
+button, Route{
     border-radius: 3px;
     background-color: #007BFF;
     border: none;
@@ -231,7 +221,8 @@ button{
     color: white;
 }
 
-button:hover{
+button:hover,
+Route:hover{
     transition: 0.75s;
     border-radius: 3px;
     background-color: blue;
@@ -245,7 +236,14 @@ button:hover{
 ul button{
     height: 35px;
     width: 120px;
-    border-radius: 0px;
+    border-radius: 10px;
     font-size: 0.9em;
     left: 50%;
+}
+
+nav ul div{
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

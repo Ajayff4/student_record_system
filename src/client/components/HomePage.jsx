@@ -1,74 +1,67 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Home from './Home';
 import CurrentTime from './CurrentTime';
 import CurrentDate from './CurrentDate';
-import AddStudent from './AddStudent';
-import UpdateStudent from './UpdateStudent';
+import UpdateProfile from './UpdateProfile';
 import SearchStudent from './SearchStudent';
+//import UpdateStudent from './UpdateStudent';
 
-//React hook mimics state property of React classes.
 
-const HomePage = () => {
-    const [login, setLogin] = useState(false);                  //React hook for Login
-    const [signup, setSignup] = useState(false);                //React hook for Signup
-    const [addStudent, setAddStudent] = useState(false);        //React hook for Add Student
-    const [updateStudent, setUpdateStudent] = useState(false);  //React hook for Update Student
-    const [searchStudent, setSearchStudent] = useState(false);  //React hook for Search Student
-    const [home, setHome] = useState(true);                     //React hook for Home
-
-    const stateDictionary = {
-        "Login": setLogin,
-        "Signup": setSignup,
-        "Home": setHome,
-        "Add": setAddStudent,
-        "Update": setUpdateStudent,
-        "Search": setSearchStudent
-    };
-
-    //const state = [home, login, signup, addStudent, updateStudent, searchStudent];
-
-    const updateAllState = (event) => {
-        for (const state in stateDictionary) {
-            stateDictionary[state](false); //equivalent to calling hook setState
-        }
-        for (const state in stateDictionary) {
-            if (event.target.id === state) {
-                stateDictionary[state](true); //equivalent to calling hook setState
-                break;
-            }
-        }
+class HomePage extends Component {
+    handleLogout = () => {
+        this.props.removeCookie('username');
+        console.log("logged out successfully.")
     }
 
-    return (
-        <>
-            <header>
-                <h2>HomePage</h2>
-                <CurrentDate />
-                <CurrentTime />
-            </header>
-            <center>
-                <ul>
-                    <button onClick={updateAllState} id="Home">Home</button>
-                    <button onClick={updateAllState} id="Login">Log In</button>
-                    <button onClick={updateAllState} id="Signup">SignUp</button>
-                    <button onClick={updateAllState} id="Add">AddStudent</button>
-                    <button onClick={updateAllState} id="Update">UpdateStudent</button>
-                    <button onClick={updateAllState} id="Search">SearchStudent</button>
-                </ul>
-            </center>
+    render() {
+        return (
+            <>
+                <header>
+                    <h2>HomePage</h2>
+                    <CurrentDate />
+                    <CurrentTime />
+                </header>
+                <center>
+                    <Router>
+                        <div>
+                            <nav>
+                                <ul>
+                                    {this.props.cookies.username !== undefined ?
+                                        (<div>
+                                            <li><Link to="/"><button>Home</button></Link></li>
+                                            <li><Link to="/updateProfile"><button>UpdateProfile</button></Link></li>
+                                            <li><Link to="/searchStudent"><button>SearchStudent</button></Link></li>
+                                            <li><button onClick={this.handleLogout}>LogOut</button></li>
+                                            {/*TABS TO SHOW FOR LOGGED IN PEOPLE*/}
+                                        </div>) :
+                                        (<div>
+                                            <li><Link to="/"><button>Home</button></Link></li>
+                                            <li><Link to="/login"><button>Login</button></Link></li>
+                                            <li><Link to="/signup"><button>Signup</button></Link></li>
+                                            {/*TABS TO SHOW FOR NOT LOGGED IN PEOPLE*/}
+                                        </div>)}
+                                </ul>
+                            </nav>
 
-            {home ? <center><Home /></center> : null}
-            {login ? <center><LogIn /></center> : null}
-            {signup ? <center><SignUp /></center> : null}
-            {addStudent ? <center><AddStudent /></center> : null}
-            {updateStudent ? <center><UpdateStudent /></center> : null}
-            {searchStudent ? <center><SearchStudent /></center> : null}
+                            <Switch>
+                                <Route exact path="/"><Home cookies={this.props.cookies} setCookie={this.props.setCookie} removeCookie={this.props.removeCookie} /></Route>
+                                <Route path="/login"><LogIn cookies={this.props.cookies} setCookie={this.props.setCookie} removeCookie={this.props.removeCookie} /></Route>
+                                <Route path="/signup"><SignUp cookies={this.props.cookies} setCookie={this.props.setCookie} removeCookie={this.props.removeCookie} /></Route>
+                                <Route path="/updateProfile"><UpdateProfile cookies={this.props.cookies} setCookie={this.props.setCookie} removeCookie={this.props.removeCookie} /></Route>
+                                <Route path="/searchStudent"><SearchStudent cookies={this.props.cookies} setCookie={this.props.setCookie} removeCookie={this.props.removeCookie} /></Route>
+                            </Switch>
+                        </div>
+                    </Router>
+                </center>
 
-            <footer><h2>All Rights Reserved Copyright&copy;2020</h2></footer>
-        </>
-    )
+                <footer><h2>All Rights Reserved Copyright&copy;2020 {this.props.cookies.username !== undefined ? ("|| " + this.props.cookies.username) : null} </h2></footer>
+            </>
+        )
+    }
+
 }
 
 export default HomePage;

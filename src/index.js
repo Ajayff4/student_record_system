@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './client/App';
+import { CookiesProvider } from 'react-cookie';
+import App from './client/components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<CookiesProvider> <App /></CookiesProvider>, document.getElementById('root'));
