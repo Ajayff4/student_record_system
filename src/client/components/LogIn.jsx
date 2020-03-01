@@ -24,10 +24,12 @@ class LogIn extends Component {
 		axios.post('/login', { username: username, password: sha256(password) },
 			{ headers: { "Content-Type": "application/json" } }
 		).then(res => {
-			if (res.data !== {}) {
-				console.log(res.data);
+			if (res.data.username !== undefined) {
+				console.log(res.data.username);
 				this.props.setCookie('username', username);
 				this.props.history.push('/');
+			} else {
+				alert("Incorrect username/password");
 			}
 		}).catch(err => {
 			console.error("post: ", err);
