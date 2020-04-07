@@ -20,14 +20,13 @@ class LogIn extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		const { username, password } = this.state;
-
 		axios.post('/login', { username: username, password: sha256(password) },
 			{ headers: { "Content-Type": "application/json" } }
 		).then(res => {
 			if (res.data.username !== undefined) {
 				console.log(res.data.username);
 				this.props.setCookie('username', username);
-				this.props.history.push('/');
+				this.props.history.push('/profile');
 			} else {
 				alert("Incorrect username/password");
 			}
@@ -50,7 +49,7 @@ class LogIn extends Component {
 							value={this.state.password} onChange={this.onChange} required
 						/>
 						<hr />
-						<button type="submit">Log In</button>
+						<button type="submit">Submit</button>
 					</form>
 				</fieldset >
 			</div >

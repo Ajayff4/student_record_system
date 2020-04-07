@@ -25,9 +25,13 @@ class SignUp extends Component {
     const { fullname, username, email, password, repassword } = this.state;
     if (password === repassword) {
       axios.post('/signup', { fullname: fullname, username: username, email: email, password: sha256(password) }
-      ).then(res => console.log(res.status)
+      ).then(res => {
+        console.log(res.status);
+        //alert("ok");
+        this.props.history.push('/');
+      }
       ).catch(err => console.error("post: ", err));
-      this.props.history.push('/');
+
     }
   }
 
@@ -47,7 +51,6 @@ class SignUp extends Component {
               placeholder="Enter fullname"
               name="fullname" required
               value={this.state.fullname}
-              pattern="[A-Za-z .]"
               onChange={this.onChange}
             /><br />
             <input type="email" id="email"

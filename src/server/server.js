@@ -55,3 +55,36 @@ app.post("/signup", (req, res) => {
         }
     })
 });
+
+app.post("/updateProfile", (req, res) => {
+    // eslint-disable-next-line no-useless-concat
+    let data = { mobile: req.body.mobile, dob: req.body.dob, pincode: req.body.pincode };
+    console.log("req body", req.body);
+    let sql = "UPDATE student SET ? WHERE username=" + "'" + req.body.username + "'";
+
+    con.query(sql, data, function (err, resp) {
+        if (err) {
+            console.error("query error");
+        } else {
+            console.log("profile updated successfully.");
+            res.send(JSON.stringify(res[0]));
+        }
+    })
+});
+
+app.post("/profile", (req, res) => {
+    // eslint-disable-next-line no-useless-concat
+    let sql = "SELECT * FROM student WHERE username=" + "'" + req.body.username + "'";
+    con.query(sql, function (err, resp) {
+        if (err) {
+            console.error("query error");
+        } else {
+            if (resp.length > 0) {
+                console.log("profile data fetched.", resp[0]);
+                res.send(JSON.stringify(resp[0]));
+            } else {
+                res.send(JSON.stringify({}));
+            }
+        }
+    })
+});
