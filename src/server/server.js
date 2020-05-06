@@ -30,7 +30,7 @@ app.post("/login", (req, res) => {
     let sql = "SELECT * FROM student WHERE username=" + "'" + req.body.username + "'" + " AND password=" + "'" + req.body.password + "'";
     con.query(sql, function (err, resp) {
         if (err) {
-            console.error("query error");
+            console.error("query error in login");
         } else {
             if (resp.length > 0) {
                 console.log("login successful.", resp[0].username);
@@ -48,7 +48,7 @@ app.post("/signup", (req, res) => {
 
     con.query(sql, data, function (err, resp) {
         if (err) {
-            console.error("query error");
+            console.error("query error in signup");
         } else {
             console.log("signup successful");
             res.send(JSON.stringify(res[0]));
@@ -64,7 +64,7 @@ app.post("/updateProfile", (req, res) => {
 
     con.query(sql, data, function (err, resp) {
         if (err) {
-            console.error("query error");
+            console.error("query error in updateProfile");
         } else {
             console.log("profile updated successfully.");
             res.send(JSON.stringify(res[0]));
@@ -74,10 +74,10 @@ app.post("/updateProfile", (req, res) => {
 
 app.post("/profile", (req, res) => {
     // eslint-disable-next-line no-useless-concat
-    let sql = "SELECT * FROM student WHERE username=" + "'" + req.body.username + "'";
+    let sql = "SELECT * FROM books WHERE tags=" + "'" + req.body.username + "'";
     con.query(sql, function (err, resp) {
         if (err) {
-            console.error("query error");
+            console.error("query error in profile");
         } else {
             if (resp.length > 0) {
                 console.log("profile data fetched.", resp[0]);
