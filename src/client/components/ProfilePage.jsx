@@ -17,6 +17,7 @@ class ProfilePage extends Component {
                 { headers: { "Content-Type": "application/json" } }
             ).then(user => {
                 this.setState({ userData: user.data });
+                console.log(user.data);
             })
         }
     };

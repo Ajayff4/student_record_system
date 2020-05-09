@@ -74,7 +74,7 @@ app.post("/updateProfile", (req, res) => {
 
 app.post("/profile", (req, res) => {
     // eslint-disable-next-line no-useless-concat
-    let sql = "SELECT * FROM books WHERE tags=" + "'" + req.body.username + "'";
+    let sql = "SELECT * FROM student WHERE username=" + "'" + req.body.username + "'";
     con.query(sql, function (err, resp) {
         if (err) {
             console.error("query error in profile");
